@@ -1,0 +1,281 @@
+{{ define "head" }}
+<style>
+  .post-header {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: var(--space-2xl);
+    padding-top: calc(100px + var(--space-2xl));
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .post-header-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
+  }
+
+  .post-header-category {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    padding: var(--space-xs) var(--space-md);
+    border: 1px solid var(--accent-gold);
+  }
+
+  .post-header-date {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+  }
+
+  .post-header-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+    max-width: 900px;
+  }
+
+  .post-header-reading {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-top: var(--space-lg);
+  }
+
+  /* Article Content */
+  .post-content {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: var(--space-2xl);
+  }
+
+  .post-content p {
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    line-height: 1.85;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
+  }
+
+  .post-content p:first-of-type {
+    font-size: 1.375rem;
+    color: var(--text-primary);
+  }
+
+  .post-content h2 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-lg);
+  }
+
+  .post-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .post-content a {
+    color: var(--accent-gold);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: opacity var(--duration-fast) var(--ease-out);
+  }
+
+  .post-content a:hover {
+    opacity: 0.7;
+  }
+
+  .post-content strong {
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .post-content em {
+    font-style: italic;
+  }
+
+  .post-content ul, .post-content ol {
+    margin-bottom: var(--space-lg);
+    padding-left: var(--space-lg);
+  }
+
+  .post-content li {
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    line-height: 1.85;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .post-content li::marker {
+    color: var(--accent-gold);
+  }
+
+  .post-content blockquote {
+    border-left: 3px solid var(--accent-gold);
+    padding-left: var(--space-lg);
+    margin: var(--space-xl) 0;
+    font-style: italic;
+  }
+
+  .post-content blockquote p {
+    color: var(--text-primary);
+  }
+
+  .post-content img {
+    width: 100%;
+    margin: var(--space-xl) 0;
+    border-radius: 2px;
+  }
+
+  .post-content pre {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    padding: var(--space-lg);
+    overflow-x: auto;
+    margin: var(--space-lg) 0;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  .post-content code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background: var(--bg-secondary);
+    padding: 0.1em 0.4em;
+    border-radius: 2px;
+  }
+
+  .post-content pre code {
+    background: none;
+    padding: 0;
+  }
+
+  .post-content hr {
+    border: none;
+    height: 1px;
+    background: var(--border);
+    margin: var(--space-2xl) 0;
+  }
+
+  /* Post Footer */
+  .post-footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-2xl) var(--space-2xl);
+    border-top: 1px solid var(--border);
+  }
+
+  .post-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
+
+  .post-nav-item {
+    padding: var(--space-lg);
+    border: 1px solid var(--border);
+    transition: all var(--duration-normal) var(--ease-out);
+  }
+
+  .post-nav-item:hover {
+    border-color: var(--accent-gold);
+    background: var(--bg-secondary);
+  }
+
+  .post-nav-item.next {
+    text-align: right;
+  }
+
+  .post-nav-label {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: var(--space-sm);
+  }
+
+  .post-nav-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.3;
+  }
+
+  @media (max-width: 768px) {
+    .post-header {
+      padding: var(--space-xl);
+      padding-top: calc(80px + var(--space-xl));
+      min-height: auto;
+    }
+
+    .post-content {
+      padding: var(--space-xl);
+    }
+
+    .post-nav {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+{{ end }}
+
+{{ define "main" }}
+<article>
+  <header class="post-header">
+    <div class="post-header-meta">
+      {{ with .Params.categories }}
+      <a href="{{ "/categories/" | relLangURL }}{{ index . 0 | urlize }}/" class="post-header-category">{{ index . 0 }}</a>
+      {{ end }}
+      <time class="post-header-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+    </div>
+    <h1 class="post-header-title">{{ .Title }}</h1>
+    <p class="post-header-reading">{{ .ReadingTime }} minute read</p>
+  </header>
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  <footer class="post-footer">
+    <nav class="post-nav">
+      {{ with .PrevInSection }}
+      <a href="{{ .Permalink }}" class="post-nav-item prev">
+        <span class="post-nav-label">← Previous</span>
+        <span class="post-nav-title">{{ .Title }}</span>
+      </a>
+      {{ else }}
+      <div></div>
+      {{ end }}
+
+      {{ with .NextInSection }}
+      <a href="{{ .Permalink }}" class="post-nav-item next">
+        <span class="post-nav-label">Next →</span>
+        <span class="post-nav-title">{{ .Title }}</span>
+      </a>
+      {{ end }}
+    </nav>
+  </footer>
+</article>
+{{ end }}

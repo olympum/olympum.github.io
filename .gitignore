@@ -1,5 +1,21 @@
-_site
-node_modules
+# Hugo build output
+/public/
+/resources/_gen/
+/.hugo_build.lock
+
+# OS files
 .DS_Store
-.vscode
-.jekyll-metadata
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+.venv/
+
+# Node (if using any build tools)
+node_modules/

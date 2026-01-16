@@ -1,0 +1,154 @@
+{{ define "head" }}
+<style>
+  .list-header {
+    padding: calc(100px + var(--space-2xl)) var(--space-2xl) var(--space-xl);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .list-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+    line-height: 1;
+  }
+
+  .list-description {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    margin-top: var(--space-lg);
+    max-width: 600px;
+  }
+
+  .list-count {
+    font-family: var(--font-mono);
+    font-size: 0.9375rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: var(--space-lg);
+  }
+
+  /* Post List */
+  .post-list {
+    list-style: none;
+  }
+
+  .post-list-item {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .post-list-link {
+    display: grid;
+    grid-template-columns: 120px 1fr auto;
+    gap: var(--space-xl);
+    padding: var(--space-xl) var(--space-2xl);
+    align-items: baseline;
+    transition: background var(--duration-normal) var(--ease-out);
+  }
+
+  .post-list-link:hover {
+    background: var(--bg-secondary);
+  }
+
+  .post-list-date {
+    font-family: var(--font-mono);
+    font-size: 0.9375rem;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+  }
+
+  .post-list-title {
+    font-family: var(--font-display);
+    font-size: 1.625rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+    transition: color var(--duration-fast) var(--ease-out);
+  }
+
+  .post-list-link:hover .post-list-title {
+    color: var(--accent-gold);
+  }
+
+  .post-list-category {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  /* Pagination */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    padding: var(--space-2xl);
+  }
+
+  .pagination a, .pagination span {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    transition: all var(--duration-fast) var(--ease-out);
+  }
+
+  .pagination a:hover {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+  }
+
+  .pagination .active {
+    background: var(--accent-gold);
+    border-color: var(--accent-gold);
+    color: var(--bg-primary);
+  }
+
+  @media (max-width: 768px) {
+    .list-header {
+      padding: calc(80px + var(--space-xl)) var(--space-xl) var(--space-lg);
+    }
+
+    .post-list-link {
+      grid-template-columns: 1fr;
+      gap: var(--space-sm);
+      padding: var(--space-lg) var(--space-xl);
+    }
+
+    .post-list-category {
+      order: -1;
+    }
+  }
+</style>
+{{ end }}
+
+{{ define "main" }}
+<header class="list-header">
+  <h1 class="list-title">{{ .Title }}</h1>
+  {{ with .Description }}
+  <p class="list-description">{{ . }}</p>
+  {{ end }}
+  <p class="list-count">{{ len .Pages }} {{ if eq (len .Pages) 1 }}article{{ else }}articles{{ end }}</p>
+</header>
+
+<ul class="post-list">
+  {{ range .Pages }}
+  <li class="post-list-item">
+    <a href="{{ .Permalink }}" class="post-list-link">
+      <time class="post-list-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 02, 2006" }}</time>
+      <span class="post-list-title">{{ .Title }}</span>
+      {{ with .Params.categories }}
+      <span class="post-list-category">{{ index . 0 }}</span>
+      {{ end }}
+    </a>
+  </li>
+  {{ end }}
+</ul>
+
+{{ template "_internal/pagination.html" . }}
+{{ end }}
