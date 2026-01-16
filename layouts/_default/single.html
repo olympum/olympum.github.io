@@ -55,7 +55,7 @@
 
   /* Article Content */
   .post-content {
-    max-width: 720px;
+    max-width: 900px;
     margin: 0 auto;
     padding: var(--space-2xl);
   }
@@ -179,7 +179,7 @@
 
   /* Post Footer */
   .post-footer {
-    max-width: 720px;
+    max-width: 900px;
     margin: 0 auto;
     padding: var(--space-xl) var(--space-2xl) var(--space-2xl);
     border-top: 1px solid var(--border);
@@ -248,7 +248,9 @@
       {{ with .Params.categories }}
       <a href="{{ "/categories/" | relLangURL }}{{ index . 0 | urlize }}/" class="post-header-category">{{ index . 0 }}</a>
       {{ end }}
+      {{ if not .Date.IsZero }}
       <time class="post-header-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+      {{ end }}
     </div>
     <h1 class="post-header-title">{{ .Title }}</h1>
     <p class="post-header-reading">{{ .ReadingTime }} minute read</p>

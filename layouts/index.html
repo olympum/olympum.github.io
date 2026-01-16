@@ -499,23 +499,6 @@
   </div>
 </section>
 
-<!-- Essays Section -->
-<section class="section-essays reveal">
-  <div class="section-header">
-    <h2 class="section-title">Long-form Essays</h2>
-  </div>
-
-  <div class="essay-grid">
-    {{ range (where .Site.RegularPages "Section" "essays") }}
-    <a href="{{ .Permalink }}" class="essay-card">
-      <span class="essay-label">Essay</span>
-      <h3 class="essay-title">{{ .Title }}</h3>
-      <p class="essay-excerpt">{{ .Summary | truncate 150 }}</p>
-    </a>
-    {{ end }}
-  </div>
-</section>
-
 <!-- Categories Strip -->
 <section class="section-categories reveal">
   <div class="section-header">

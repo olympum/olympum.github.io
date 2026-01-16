@@ -2,6 +2,10 @@
 title: "The User Data Marketplace"
 date: 2014-12-29
 author: Bruno Fernandez-Ruiz
+categories:
+- Architecture
+aliases:
+- /essays/user-data-marketplace/
 ---
 
 There is a nascent and potentially large opportunity to create a user

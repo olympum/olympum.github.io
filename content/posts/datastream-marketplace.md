@@ -3,6 +3,10 @@ title: "The Datastream Marketplace"
 subtitle: "A Reverse Auction Mechanism for Algorithms"
 date: 2014-12-29
 author: Bruno Fernandez-Ruiz
+categories:
+- Architecture
+aliases:
+- /essays/datastream-marketplace/
 ---
 
 ## Decision Automation

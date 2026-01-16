@@ -9,11 +9,10 @@ title = "Bruno's Journal"
 # Permalinks
 [permalinks]
   posts = "/posts/:slug/"
-  essays = "/essays/:slug/"
 
 [params]
   author = "Bruno Fernandez-Ruiz"
-  description = "Yet Another Triathlete CTO"
+  description = "CTO by week, composer by weekend, triathlete by obsession"
   env = "production"
 
   # Theme settings
@@ -41,18 +40,33 @@ title = "Bruno's Journal"
     url = "https://github.com/olympum"
 
   [[params.socialIcons]]
+    name = "youtube"
+    url = "https://www.youtube.com/@olympum"
+
+  [[params.socialIcons]]
+    name = "spotify"
+    url = "https://open.spotify.com/artist/4cfOxKdpqmKntn3kTKPn1N"
+
+  [[params.socialIcons]]
+    name = "applemusic"
+    url = "https://music.apple.com/us/artist/olympum/1565990928"
+
+  [[params.socialIcons]]
+    name = "amazonmusic"
+    url = "https://music.amazon.com/artists/B0945FC5N4/olympum"
+
+  [[params.socialIcons]]
+    name = "bandcamp"
+    url = "https://olympum.bandcamp.com"
+
+  [[params.socialIcons]]
+    name = "songwhip"
+    url = "https://songwhip.com/olympum"
+
+  [[params.socialIcons]]
     name = "rss"
     url = "/index.xml"
 
-  # Search
-  [params.fuseOpts]
-    isCaseSensitive = false
-    shouldSort = true
-    location = 0
-    distance = 1000
-    threshold = 0.4
-    minMatchCharLength = 0
-    keys = ["title", "permalink", "summary", "content"]
 
 # Main menu
 [[menu.main]]
@@ -60,12 +74,6 @@ title = "Bruno's Journal"
   name = "Posts"
   url = "/posts/"
   weight = 10
-
-[[menu.main]]
-  identifier = "essays"
-  name = "Essays"
-  url = "/essays/"
-  weight = 20
 
 [[menu.main]]
   identifier = "categories"
@@ -79,15 +87,8 @@ title = "Bruno's Journal"
   url = "/about/"
   weight = 40
 
-[[menu.main]]
-  identifier = "search"
-  name = "Search"
-  url = "/search/"
-  weight = 50
-
-# Enable search
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS"]
 
 # Markdown settings
 [markup]
