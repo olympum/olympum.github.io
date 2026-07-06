@@ -9,7 +9,7 @@ own layouts in `layouts/` rather than an external theme.
 
 ## Prerequisites
 
-[Hugo (extended)](https://gohugo.io/installation/), v0.154.5 or newer to match
+[Hugo (extended)](https://gohugo.io/installation/), v0.163.3 or newer to match
 the CI build:
 
 ```

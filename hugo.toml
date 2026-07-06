@@ -1,5 +1,5 @@
 baseURL = "https://www.olympum.com/"
-languageCode = "en-us"
+locale = "en-us"
 title = "Bruno's Journal"
 # Using custom layouts - no theme
 
@@ -13,59 +13,6 @@ title = "Bruno's Journal"
 [params]
   author = "Bruno Fernandez-Ruiz"
   description = "CTO by week, composer by weekend, triathlete by obsession"
-  env = "production"
-
-  # Theme settings
-  defaultTheme = "auto"  # dark, light, or auto
-  ShowReadingTime = true
-  ShowShareButtons = false
-  ShowPostNavLinks = true
-  ShowBreadCrumbs = true
-  ShowCodeCopyButtons = true
-  ShowToc = true
-  TocOpen = false
-
-  # Home page
-  [params.homeInfoParams]
-    Title = "Bruno's Journal"
-    Content = "Yet Another Triathlete CTO"
-
-  # Social icons in home page
-  [[params.socialIcons]]
-    name = "twitter"
-    url = "https://twitter.com/olympum"
-
-  [[params.socialIcons]]
-    name = "github"
-    url = "https://github.com/olympum"
-
-  [[params.socialIcons]]
-    name = "youtube"
-    url = "https://www.youtube.com/@olympum"
-
-  [[params.socialIcons]]
-    name = "spotify"
-    url = "https://open.spotify.com/artist/4cfOxKdpqmKntn3kTKPn1N"
-
-  [[params.socialIcons]]
-    name = "applemusic"
-    url = "https://music.apple.com/us/artist/olympum/1565990928"
-
-  [[params.socialIcons]]
-    name = "amazonmusic"
-    url = "https://music.amazon.com/artists/B0945FC5N4/olympum"
-
-  [[params.socialIcons]]
-    name = "bandcamp"
-    url = "https://olympum.bandcamp.com"
-
-  [[params.socialIcons]]
-    name = "songwhip"
-    url = "https://songwhip.com/olympum"
-
-  [[params.socialIcons]]
-    name = "rss"
-    url = "/index.xml"
 
 
 # Main menu
