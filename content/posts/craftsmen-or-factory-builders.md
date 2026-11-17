@@ -1,7 +1,7 @@
 ---
 title: "Craftsmen or Factory Builders?"
 date: 2026-11-17
-draft: true
+draft: false
 categories:
 - essays
 author: Bruno Fernandez-Ruiz
