@@ -23,7 +23,7 @@ Papers published, sales closed, code shipped, wealth: these are heavy-tailed, an
 
 Two mechanisms produce the heavy tail.
 
-* **Multiplication gives a log-normal.** William Shockley (yes, the transistor one) asked in 1957 why some scientists at Bell Labs published far more than others. His answer was that producing a paper takes a chain of steps: having an idea, judging it worth pursuing, doing the work, writing it up, and so on. Output is the product of how good you are at each step. A person who is modestly better at each of eight steps, say 1.5 times, ends up about 25 times more productive overall. The logarithm of a product is a sum, so the central limit theorem now applies to the logs, and the result is a log-normal. Inputs that are normal, multiplied together, give outputs that are heavy-tailed.
+* **Multiplication gives a log-normal.** In 1957 William Shockley (yes, the transistor one, who had led a group at Bell Labs) looked at the publication records of research laboratories such as Los Alamos and Brookhaven, and asked why some scientists published fifty times more than others. His answer was that getting a paper out means clearing a chain of hurdles, from having the idea to getting it written up and published. Output is the product of how good you are at each step. A person who is modestly better at each of eight steps, say 1.5 times, ends up about 25 times more productive overall. The logarithm of a product is a sum, so the central limit theorem now applies to the logs, and the result is a log-normal. Inputs that are normal, multiplied together, give outputs that are heavy-tailed.
 * **Feedback gives a power law.** Success brings resources, attention and better problems, which bring more success: the rich get richer. Robert Merton called it the Matthew effect (1968), and Herbert Simon (1955) and later Barabási modelled it as preferential attachment. Processes like this produce power laws (Pareto).
 
 Jobs where one person’s output is capped by their own hours produce normal-looking results. Jobs with leverage, where tools, capital or other people multiply what one person does, produce heavy tails. A craftsman’s output is capped by their own attention. A factory removes that cap.
@@ -42,7 +42,7 @@ Talent has always been steeply uneven, and every manager has worked around it fo
 
 Pull requests are volume, and not value, and agents inflate them. By a lot. But a gap of a hundred times is not a measurement problem, and the interesting question is what the people at the top are doing that the others are not.
 
-The answer is not that they use agents more, nor better. My reading is that they use agents to improve every step of the process at once, and that the gains compound. Just like at Bell Labs, a process of eight steps where each step becomes 50% better ends up 25 times more productive.
+The answer is not that they use agents more, nor better. My reading is that they use agents to improve every step of the process at once, and that the gains compound. Just as in Shockley's model, a process of eight steps where each step becomes 50% better ends up 25 times more productive.
 
 That is the shape I would call a leveraged log-normal: still a log-normal, a product of many steps, but one whose spread widens as each person's leverage grows. Among the engineers who opened pull requests in both years, the spread of the logarithm of their output went from 1.0 to 1.65. A year ago someone one standard deviation above the median produced about 2.7 times the median, and now they produce about 5.2 times. The median barely moved while the tail stretched.
 
@@ -62,7 +62,7 @@ The Hero builds the factory.
 
 ## Where the curve is steep
 
-A colleague asked whether the curve shows up everywhere, so we ran it on every pull request that our three GitHub organisations received in that month, with bots left out. A century ago Lotka found that the number of scientists publishing *n* papers falls as one over *n* squared, and Price later noticed that about the square root of the number of authors in a field write half its papers. For a team our size that would be roughly an eighth of the engineers, whereas for us it took 3%. Across the company, the most active fifth of authors wrote 82% of the pull requests and the bottom half wrote 4%. In each of our four engineering domains the top fifth wrote between 70% and 94%.
+A colleague asked whether the curve shows up everywhere, so we ran it on every pull request that our three GitHub organisations received in that month, with bots left out. A century ago Lotka found that the number of scientists publishing *n* papers falls as one over *n* squared, and Price later proposed that about the square root of the number of authors in a field write half its papers. Later studies found even Price's rule too gentle, and our curve is steeper still: for a team our size it would predict roughly an eighth of the engineers, whereas for us it took 3%. Across the company, the most active fifth of authors wrote 82% of the pull requests and the bottom half wrote 4%. In each of our four engineering domains the top fifth wrote between 70% and 94%.
 
 ![The curve is steep in every domain, and splits between agentic and older repositories](/assets/2026/11/concentration-domains-repos.png)
 
@@ -90,4 +90,15 @@ Go build your factory.
 
 ---
 
-*Further reading.* William Shockley, "On the Statistics of Individual Variations of Productivity in Research Laboratories" (1957). Alfred Lotka, "The Frequency Distribution of Scientific Productivity" (1926). Derek de Solla Price, *Little Science, Big Science* (1963). Robert Merton, "The Matthew Effect in Science" (1968). Herbert Simon, "On a Class of Skew Distribution Functions" (1955). Albert-László Barabási and Réka Albert, "Emergence of Scaling in Random Networks" (1999). Nassim Taleb, *The Black Swan* (2007). Ernest O'Boyle and Herman Aguinis, "The Best and the Rest" (2012), and Jeffrey Beck, Adam Beatty and Paul Sackett, "On the Distribution of Job Performance" (2014). Aaron Clauset, Cosma Shalizi and Mark Newman, "Power-Law Distributions in Empirical Data" (2009).
+*Further reading.*
+
+- William Shockley, "On the Statistics of Individual Variations of Productivity in Research Laboratories", *Proceedings of the IRE* 45(3), 1957.
+- Alfred J. Lotka, "The Frequency Distribution of Scientific Productivity", *Journal of the Washington Academy of Sciences* 16(12), 1926.
+- Derek J. de Solla Price, *Little Science, Big Science*, Columbia University Press, 1963.
+- Herbert A. Simon, "On a Class of Skew Distribution Functions", *Biometrika* 42(3/4), 1955.
+- Robert K. Merton, "The Matthew Effect in Science", *Science* 159(3810), 1968.
+- Albert-László Barabási and Réka Albert, "Emergence of Scaling in Random Networks", *Science* 286(5439), 1999.
+- Nassim Nicholas Taleb, *The Black Swan*, Random House, 2007.
+- Ernest O'Boyle and Herman Aguinis, "The Best and the Rest: Revisiting the Norm of Normality of Individual Performance", *Personnel Psychology* 65(1), 2012.
+- James W. Beck, Adam S. Beatty and Paul R. Sackett, "On the Distribution of Job Performance: The Role of Measurement Characteristics in Observed Departures from Normality", *Personnel Psychology* 67(3), 2014.
+- Aaron Clauset, Cosma Rohilla Shalizi and M. E. J. Newman, "Power-Law Distributions in Empirical Data", *SIAM Review* 51(4), 2009.
